@@ -4,7 +4,7 @@ Just a simple CLI to help you quickly create apps on Urban Airship. Our iOS dev 
 
 ## Requirements
 
-	Firefox needs no driver to work with watir and that's why it's easiest to just have Firefox installed on your computer ;-)
+Firefox needs no driver to work with watir and that's why it's easiest to just have Firefox installed on your computer ;-)
 
 ## Example
 	

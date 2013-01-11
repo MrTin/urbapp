@@ -2,6 +2,10 @@
 
 Just a simple CLI to help you quickly create apps on Urban Airship. Our iOS dev does this a lot so this will help him out. And it's always fun to automate stuff ;-)
 
+Requirements:
+
+	Firefox needs no driver to work with watir and that's why it's easiest to just have Firefox installed on your computer ;-)
+
 Example:
 	
 	./urbapp new --username myUsern0me --password P0ny --name "Awesome Pocahontas" --certificate /path/to/certificate.cer --certificate-password mySecretC3rt --headless

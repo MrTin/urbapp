@@ -2,7 +2,7 @@
 
 Just a simple CLI to help you quickly create apps on Urban Airship. Our iOS dev does this a lot so this will help him out. And it's always fun to automate stuff ;-)
 
-Usage:
+Example:
 	
 	./urbapp new --username myUsern0me --password P0ny --name "Awesome Pocahontas" --certificate /path/to/certificate.cer --certificate-password mySecretC3rt --headless
 

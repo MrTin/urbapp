@@ -21,7 +21,6 @@ command :new do |c|
   c.option '--development', 'Creates a development certificate, skip --certificate, --certificate-password'
   c.action do |args, options|
 
-
   		if options.headless
   			headless = Headless.new
   			headless = headless.start
@@ -40,16 +39,16 @@ command :new do |c|
 
 		if options.development
 			b.select_list(:id => "id_mode").select_value 'development'
-			b.select_list(:id => 'id_category').select 'Newsstand'
 		else
 			b.select_list(:id => 'id_mode').select_value 'production'
-			b.select_list(:id => 'id_category').select 'Newsstand'
-
-			b.file_field(:id => 'id_certificate').set(options.certificate)
-			b.text_field(:id => 'id_certificate_password').set(options.certificate_password)
 		end
 
+    b.select_list(:id => 'id_category').select 'Newsstand'
+
 		b.checkbox(:id => 'id_push_enabled').set
+    
+    b.file_field(:id => 'id_certificate').set(options.certificate)
+    b.text_field(:id => 'id_certificate_password').set(options.certificate_password)
 
 		b.button(:value => 'Create your application').click
 

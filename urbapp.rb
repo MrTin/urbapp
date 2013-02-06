@@ -2,6 +2,7 @@ require 'rubygems'
 require 'commander/import'
 require 'watir-webdriver'
 require 'headless'
+require 'json'
 
 program :version, '0.0.1'
 program :description, 'CRUD Urban Airship Apps'
@@ -19,6 +20,7 @@ command :new do |c|
   c.option '--certificate-password PASSWORD', String, 'Certificate password'
   c.option '--headless', 'Run a headless browser using Xvfb'
   c.option '--development', 'Creates a development certificate, skip --certificate, --certificate-password'
+  c.option '--respond-with FORMAT', String, 'Responds with specified format. eg. --respond-with json'
   c.action do |args, options|
 
   		if options.headless
@@ -61,11 +63,15 @@ command :new do |c|
 		app_secret = b.span(:id => 'app_secret').text
 		app_master_secret = b.span(:id => 'app_master_secret').text
 
-		say "-------------------------------------------"
-		say "App Key: #{app_key}"
-		say "App Secret: #{app_secret}"
-		say "App Master Secret: #{app_master_secret}"
-		say "-------------------------------------------"
+    if options.respond_with == 'json'
+      say JSON({app_key: app_key, app_secret: app_secret, app_master_secret: app_master_secret})
+    else
+      say "-------------------------------------------"
+      say "App Key: #{app_key}"
+      say "App Secret: #{app_secret}"
+      say "App Master Secret: #{app_master_secret}"
+      say "-------------------------------------------"
+    end
 
 		begin
 			b.close
